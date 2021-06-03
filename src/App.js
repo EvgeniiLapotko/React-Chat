@@ -1,12 +1,12 @@
-import React from 'react';
+import React from "react";
+import Auth from "./pages/Auth";
 
 function App() {
-  return (
-    <div className="App">
-      <h1>Hello World</h1>
-      <p className="text">text</p>
-    </div>
-  );
+    return (
+        <div className="wrapper">
+            <Auth />
+        </div>
+    );
 }
 
 export default App;
