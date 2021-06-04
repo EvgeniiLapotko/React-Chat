@@ -5,10 +5,10 @@ import { Route } from "react-router-dom";
 function Auth() {
     return (
         <div className="auth">
-            <Route exact path={["/", "/login"]}>
+            <Route exact path='/login'>
                 <LoginForm />
             </Route>
-            <Route path="/register">
+            <Route path="/login/register">
                 <RegisterForm />
             </Route>
         </div>

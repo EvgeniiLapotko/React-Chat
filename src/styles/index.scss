@@ -67,3 +67,25 @@ html {
     flex-direction: column;
     width: 100%;
 }
+
+.icons__reg{
+    font-size: 50px;
+    color: skyblue;
+}
+
+.register-check{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    h2{
+        text-align: center;
+    }
+    p{
+        margin-bottom: 35px;
+        font-size: 18px;
+        opacity: 0.5;
+    }
+    .btn-large{
+        margin-bottom: 20px;
+    }
+}
