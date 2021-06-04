@@ -5,12 +5,9 @@ import { Route } from "react-router-dom";
 function Auth() {
     return (
         <div className="auth">
-            <Route exact path='/login'>
-                <LoginForm />
-            </Route>
-            <Route path="/login/register">
-                <RegisterForm />
-            </Route>
+            <Route exact path={["/", "/login"]} component={LoginForm} />
+
+            <Route exact path="/register" component={RegisterForm} />
         </div>
     );
 }

@@ -45,7 +45,7 @@ function LoginForm() {
                     </Button>
                 </Form.Item>
 
-                <Link to="/login/register" className="link__reg">
+                <Link to="/register" className="link__reg">
                     Зарегестрироваться
                 </Link>
             </Form>
