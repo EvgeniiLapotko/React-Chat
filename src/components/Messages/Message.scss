@@ -56,3 +56,30 @@
         opacity: 0.4;
     }
 }
+
+.icon__read{
+    margin-bottom: 23px;
+    margin-right: 8px;
+    font-size: 18px;
+    font-weight: 700;
+    opacity: 0.5;
+    &--check{
+        color: rgb(35, 161, 211);
+        opacity: 1;
+    }
+}
+
+.message__attachment{
+    display: flex;
+    &-img{
+        width: 60px;
+        height: 60px;
+        margin-right: 10px;
+        border-radius: 5px;
+        overflow: hidden;
+        img{
+            width: inherit;
+            height: inherit;
+        }
+    }
+}
