@@ -1,5 +1,5 @@
 import React from "react";
-import { LoginForm, RegisterForm } from "../modules/LoginForm";
+import { LoginForm, RegisterForm } from "../modules";
 import { Route } from "react-router-dom";
 
 function Auth() {

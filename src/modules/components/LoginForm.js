@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Block } from "../../../components";
+import { Button, Block } from "../../components";
 import { Form, Input } from "antd";
 import { Link } from "react-router-dom";
 
