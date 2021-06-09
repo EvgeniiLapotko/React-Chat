@@ -101,5 +101,30 @@ html {
     margin: 0 auto;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
     padding: 15px;
-    min-height: 500px;
+    height: 500px;
+
+    overflow: auto;
+}
+
+.text-input.error {
+    box-shadow: 0 0 5px #f00;
+}
+
+.input__wrapper {
+    position: relative;
+    margin-bottom: 35px;
+}
+
+.input__suberrors {
+    position: absolute;
+    bottom: -25px;
+    color: rgba(0, 0, 0, 0.4);
+}
+
+.warning__message {
+    min-height: 25px;
+    text-align: center;
+    color: rgba(255, 0, 0, 0.7);
+    font-size: 14px;
+    text-transform: uppercase;
 }

@@ -56,30 +56,84 @@
         opacity: 0.4;
     }
 }
+.message.message__isTyping {
+    .message__avatar {
+        margin-bottom: 1px;
+    }
+}
 
-.icon__read{
+.icon__read {
     margin-bottom: 23px;
     margin-right: 8px;
     font-size: 18px;
     font-weight: 700;
     opacity: 0.5;
-    &--check{
+    &--check {
         color: rgb(35, 161, 211);
         opacity: 1;
     }
 }
 
-.message__attachment{
+.message__image {
+    .message__attachment-img {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+.message__attachment {
     display: flex;
-    &-img{
+    &-img {
         width: 60px;
         height: 60px;
         margin-right: 10px;
         border-radius: 5px;
         overflow: hidden;
-        img{
+        img {
             width: inherit;
             height: inherit;
         }
+    }
+}
+
+.typing-indicator {
+    background-color: rgb(33, 175, 240);
+    will-change: transform;
+    width: auto;
+    border-radius: 10px;
+    border-bottom-left-radius: 0;
+    padding: 17px;
+    display: table;
+    margin: 0 auto;
+    position: relative;
+    animation: 2s bulge infinite ease-out;
+    opacity: 0.6;
+
+    span {
+        height: 15px;
+        width: 15px;
+        float: left;
+        margin: 0 1px;
+        background-color: #fff;
+        display: block;
+        border-radius: 50%;
+        opacity: 0.4;
+        @for $i from 1 through 3 {
+            &:nth-of-type(#{$i}) {
+                animation: 1s blink infinite ($i * 0.3333s);
+            }
+        }
+    }
+}
+
+@keyframes blink {
+    50% {
+        opacity: 1;
+    }
+}
+
+@keyframes bulge {
+    50% {
+        transform: scale(1.05);
     }
 }

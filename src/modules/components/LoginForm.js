@@ -3,7 +3,17 @@ import { Button, Block } from "../../components";
 import { Form, Input } from "antd";
 import { Link } from "react-router-dom";
 
-function LoginForm() {
+function LoginForm(props) {
+    const {
+        values,
+        touched,
+        errors,
+        handleChange,
+        handleBlur,
+        handleSubmit,
+        dirty,
+        isValid,
+    } = props;
     return (
         <Block className="block__wrapper">
             <div className="auth__top">
@@ -12,35 +22,77 @@ function LoginForm() {
                     Пожалуйста войдите в свой аккаунт
                 </p>
             </div>
-            <Form name="basic" initialValues={{ remember: true }}>
+            <Form
+                name="loginForm"
+                initialValues={{ remember: true }}
+                onSubmit={handleSubmit}
+            >
                 <Form.Item
-                    className="label__auth"
-                    name="username"
-                    rules={[
-                        {
-                            required: true,
-                            message: "Please input your username!",
-                        },
-                    ]}
+                    className="label__auth input__wrapper"
+                    validateStatus={
+                        !touched.login ? "" : errors.login ? "error" : "success"
+                    }
                 >
-                    <Input size="large" placeholder="Логин" />
+                    <Input
+                        size="large"
+                        placeholder="Логин"
+                        id="login"
+                        type="text"
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        value={values.login}
+                        name="login"
+                        className={
+                            errors.login && touched.login
+                                ? "text-input error"
+                                : "text-input"
+                        }
+                    />
+                    {errors.login && touched.login && (
+                        <div className="input__suberrors">{errors.login}</div>
+                    )}
                 </Form.Item>
 
                 <Form.Item
-                    className="label__auth"
-                    name="password"
-                    rules={[
-                        {
-                            required: true,
-                            message: "Please input your password!",
-                        },
-                    ]}
+                    className="label__auth input__wrapper"
+                    validateStatus={
+                        !touched.password
+                            ? ""
+                            : errors.password
+                            ? "errors"
+                            : "success"
+                    }
                 >
-                    <Input.Password size="large" placeholder="Пароль" />
+                    <Input.Password
+                        size="large"
+                        placeholder="Пароль"
+                        id="password"
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        value={values.password}
+                        name="password"
+                        className={
+                            errors.password && touched.password
+                                ? "text-input error"
+                                : "text-input"
+                        }
+                    />
+                    {errors.password && touched.password && (
+                        <div className="input__suberrors">
+                            {errors.password}
+                        </div>
+                    )}
                 </Form.Item>
-
+                <div className="warning__message">
+                    {dirty && !isValid && <span>Ошибка заполнения формы</span>}
+                </div>
                 <Form.Item>
-                    <Button type="primary" htmlType="submit" size="large">
+                    <Button
+                        type="primary"
+                        htmlType="submit"
+                        size="large"
+                        onClick={handleSubmit}
+                    >
                         Войти в аккаунт
                     </Button>
                 </Form.Item>

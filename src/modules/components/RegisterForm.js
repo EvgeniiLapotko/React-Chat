@@ -24,14 +24,26 @@ function RegisterForm(props) {
                 <h1 className="auth__title">Регистрация</h1>
                 <p className="auth__subtitle">Пожалуйста зарегистрируйтесь</p>
             </div>
+
             {!succes ? (
                 <Form
                     name="nest-messages"
                     className="register-form"
                     onSubmit={handleSubmit}
                 >
-                    <Form.Item>
+                    <Form.Item
+                        validateStatus={
+                            !touched.name
+                                ? ""
+                                : errors.name
+                                ? "errors"
+                                : "success"
+                        }
+                        className="input__wrapper"
+                    >
                         <Input
+                            id="name"
+                            type="text"
                             placeholder="Ваше Имя"
                             size="large"
                             prefix={<UserOutlined />}
@@ -39,7 +51,17 @@ function RegisterForm(props) {
                             onBlur={handleBlur}
                             value={values.name}
                             name="name"
+                            className={
+                                errors.name && touched.name
+                                    ? "text-input error"
+                                    : "text-input"
+                            }
                         />
+                        {errors.name && touched.name && (
+                            <div className="input__suberrors">
+                                {errors.name}
+                            </div>
+                        )}
                     </Form.Item>
                     <Form.Item
                         validateStatus={
@@ -49,8 +71,8 @@ function RegisterForm(props) {
                                 ? "errors"
                                 : "success"
                         }
-                        help={!touched.email && errors.email}
                         hasFeedback
+                        className="input__wrapper"
                     >
                         <Input
                             id="email"
@@ -59,7 +81,7 @@ function RegisterForm(props) {
                             onChange={handleChange}
                             onBlur={handleBlur}
                             value={values.email}
-                            name="Email"
+                            name="email"
                             type="email"
                             className={
                                 errors.email && touched.email
@@ -67,16 +89,82 @@ function RegisterForm(props) {
                                     : "text-input"
                             }
                         />
+                        {errors.email && touched.email && (
+                            <div className="input__suberrors">
+                                {errors.email}
+                            </div>
+                        )}
                     </Form.Item>
-                    <Form.Item>
-                        <Input placeholder="Пароль" size="large" />
+                    <Form.Item
+                        validateStatus={
+                            !touched.password
+                                ? ""
+                                : errors.password
+                                ? "errors"
+                                : "success"
+                        }
+                        hasFeedback
+                        className="input__wrapper"
+                    >
+                        <Input.Password
+                            id="password"
+                            size="large"
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            value={values.password}
+                            name="password"
+                            type="password"
+                            placeholder="Пароль"
+                            className={
+                                errors.password && touched.password
+                                    ? "text-input error"
+                                    : "text-input"
+                            }
+                        />
+                        {errors.password && touched.password && (
+                            <div className="input__suberrors">
+                                {errors.password}
+                            </div>
+                        )}
                     </Form.Item>
-                    <Form.Item>
-                        <Input placeholder="Повторите Пароль" size="large" />
+                    <Form.Item
+                        validateStatus={
+                            !touched.returnPassword
+                                ? ""
+                                : errors.returnPassword
+                                ? "errors"
+                                : "success"
+                        }
+                        hasFeedback
+                        className="input__wrapper"
+                    >
+                        <Input.Password
+                            placeholder="Повторите Пароль"
+                            size="large"
+                            id="returnPassword"
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            value={values.returnPassword}
+                            name="returnPassword"
+                            type="password"
+                            className={
+                                errors.returnPassword && touched.returnPassword
+                                    ? "text-input error"
+                                    : "text-input"
+                            }
+                        />
+                        {errors.returnPassword && touched.returnPassword && (
+                            <div className="input__suberrors">
+                                {errors.returnPassword}
+                            </div>
+                        )}
                     </Form.Item>
-
+                    <div className="warning__message">
+                        {dirty && !isValid && (
+                            <span>Ошибка заполнения формы</span>
+                        )}
+                    </div>
                     <Form.Item>
-                        {dirty && !isValid && <span>Warning</span>}
                         <Button
                             onClick={handleSubmit}
                             type="primary"

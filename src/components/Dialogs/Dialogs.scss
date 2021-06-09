@@ -1,0 +1,41 @@
+.dialogs__item {
+    display: flex;
+    align-items: center;
+    max-width: 300px;
+    padding-left: 10px;
+
+    .dialogs__item-avatar {
+        margin-right: 12px;
+        img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+    }
+    &-info {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        &-top {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 4px;
+        }
+        &-name {
+            font-weight: 700;
+            font-size: 16px;
+        }
+        &-data {
+            opacity: 0.7;
+        }
+        &-bottom {
+            display: flex;
+            justify-content: space-between;
+        }
+        &-num {
+            width: 25px;
+            height: 25px;
+        }
+    }
+}
