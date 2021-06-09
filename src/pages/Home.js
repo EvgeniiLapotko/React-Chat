@@ -20,6 +20,17 @@ const Home = () => {
                                 },
                                 message: {
                                     text: "Мы все сведетельствуем Вам наше глубочайшее подчение",
+                                    isReaded: false,
+                                    created_data: new Date(),
+                                },
+                            },
+                            {
+                                user: {
+                                    fullname: "Федор Валентинович Достоевский",
+                                    avatar: "https://sun1-90.userapi.com/s/v1/ig2/Rs0rm1SJkNMZSgioGN5exxiSxyRA07R4oqRDr7_BfNlx1M1M_i3DFTkDrKMm70ww8rn5_PKNdB_jkjDHNmUUQhFP.jpg?size=100x0&quality=96&crop=0,0,1024,1024&ava=1",
+                                },
+                                message: {
+                                    text: "Мы все сведетельствуем Вам наше глубочайшее подчение",
                                     isReaded: true,
                                     created_data: new Date(),
                                 },
@@ -27,7 +38,7 @@ const Home = () => {
                         ]}
                     />
                 </div>
-                {/* <div className="chat">
+                <div className="chat">
                 <Message
                     avatar="https://sun1-90.userapi.com/s/v1/ig2/Rs0rm1SJkNMZSgioGN5exxiSxyRA07R4oqRDr7_BfNlx1M1M_i3DFTkDrKMm70ww8rn5_PKNdB_jkjDHNmUUQhFP.jpg?size=100x0&quality=96&crop=0,0,1024,1024&ava=1"
                     text="Return the distance between the given dates in words, using strict units. This is like formatDistance..."
@@ -70,7 +81,7 @@ const Home = () => {
                     avatar="https://sun1-90.userapi.com/s/v1/ig2/Rs0rm1SJkNMZSgioGN5exxiSxyRA07R4oqRDr7_BfNlx1M1M_i3DFTkDrKMm70ww8rn5_PKNdB_jkjDHNmUUQhFP.jpg?size=100x0&quality=96&crop=0,0,1024,1024&ava=1"
                     isTyping={true}
                 />
-            </div> */}
+            </div>
             </div>
         </div>
     );

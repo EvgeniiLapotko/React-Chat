@@ -1,15 +1,32 @@
 .dialogs__item {
     display: flex;
     align-items: center;
-    max-width: 300px;
-    padding-left: 10px;
+    
+    width: 100%;
+    padding: 10px;
+    cursor: pointer;
 
     .dialogs__item-avatar {
         margin-right: 12px;
+        width: 50px;
+        height: 50px;
         img {
             width: 50px;
             height: 50px;
             border-radius: 50%;
+        }
+    }
+    &-anon{
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: skyblue;
+        border-radius: 50%;
+        span{
+            font-size: 24px;
+            font-weight: 700;
         }
     }
     &-info {
@@ -20,22 +37,38 @@
             width: 100%;
             display: flex;
             justify-content: space-between;
+            align-items: center;
             margin-bottom: 4px;
         }
         &-name {
             font-weight: 700;
             font-size: 16px;
+            margin-bottom: 5px;
         }
         &-data {
             opacity: 0.7;
+            font-size: 12px;
         }
         &-bottom {
             display: flex;
             justify-content: space-between;
+            align-items: center;
         }
         &-num {
             width: 25px;
             height: 25px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            background-color: rgb(248, 112, 112);
+            color: #fff;
+            font-weight: 600;
+            
+        }
+        &-icon{
+            font-size: 18px;
+            color: skyblue;
         }
     }
 }
