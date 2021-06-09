@@ -1,13 +1,12 @@
 import React from "react";
 
-import { BsCheck, BsCheckAll } from "react-icons/bs";
-
 import PropTypes from "prop-types";
 import classNames from "classnames";
-import ru from "date-fns/locale/ru";
-import "./Message.scss";
 
-import formatDistanceToNow from "date-fns/formatDistanceToNow";
+import "./Message.scss";
+import {IconReaded, Time} from '../index'
+
+
 
 const Message = ({
     avatar,
@@ -27,12 +26,7 @@ const Message = ({
                 message__image: attachment && attachment.length === 1,
             })}
         >
-            {isMe &&
-                (isReading ? (
-                    <BsCheckAll className="icon__read icon__read--check" />
-                ) : (
-                    <BsCheck className="icon__read" />
-                ))}
+                <IconReaded isMe={isMe} isReading={isReading} />
             <div className="message__avatar">
                 <img src={avatar} alt="avatar" />
             </div>
@@ -71,10 +65,8 @@ const Message = ({
 
                 {date && (
                     <div className="message__date">
-                        {formatDistanceToNow(date, {
-                            addSuffix: true,
-                            locale: ru,
-                        })}
+                        <Time date={date} />
+                        
                     </div>
                 )}
             </div>

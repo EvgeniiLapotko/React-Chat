@@ -1,43 +1,55 @@
-import React, { useReducer } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 import ru from "date-fns/locale/ru";
 import formatDistanceToNow from "date-fns/formatDistanceToNow";
 import "./Dialogs.scss";
-import { BsCheckAll } from "react-icons/bs";
+import {IconReaded, Time} from '../index'
 
 const Dialogs = ({items}) => {
+    const getAvatar = (avatar, name) => {
+        if(avatar){
+            return <img
+            src={avatar}
+            alt="avatar"
+        />
+        } else {
+            return <div className='dialogs__item-anon'><span>{name[0]}</span></div>
+        }
+    }
     return (
+        
         <>
         {items.map((item, index) => {
             const {user, message} = item;
-            return <div className="dialogs__item" key={index}>
+            return <div className={classNames('dialogs__item', {
+                'dialogs__item-online' : user.isOnline
+            } )} key={index}>
             <div className="dialogs__item-avatar">
-                {user.avatar === null ? <div className='dialogs__item-anon'><span>{user.fullname[0]}</span></div>
-                :
-                <img
-                    src={user.avatar}
-                    alt="avatar"
-                />
-                }
+                {getAvatar(user.avatar, user.fullname)}
+                
                 
             </div>
             <div className="dialogs__item-info">
                 <div className="dialogs__item-info-top">
-                    <div className="dialogs__item-info-name">{user.fullname.length > 17 ? `${user.fullname.slice(0, 17)}...` : user.fullname}</div>
+                    <div className="dialogs__item-info-name">{user.fullname}</div>
                     <div className="dialogs__item-info-data">
-                    {`${formatDistanceToNow(message.created_data, {
+                        {/* <Time date={message.created_data} /> */}
+                    {/* {`${formatDistanceToNow(message.created_data, {
                             addSuffix: true,
                             locale: ru,
-                        }).slice(0, 15)}...`}
+                        }).slice(0, 15)}...`} */}
+                        13:05
                         </div>
                 </div>
                 <div className="dialogs__item-info-bottom">
-                    <div className="dialogs__item-info-text">{message.text.length > 30 ? `${message.text.slice(0, 30)}...` : message.text}</div>
-                    {message.isReaded ? <BsCheckAll className="dialogs__item-info-icon" /> :  
-                        <div className="dialogs__item-info-num">
+                    <div className="dialogs__item-info-text">{message.text}</div>
+                    {user.isMe ? <IconReaded isMe={user.isMe} isReading={message.isReaded} dialogs__icon={true}/> :  
+                        <div className={classNames({
+                            'dialogs__item-info-num' : message.noReaded
+                        })}>
+                        {message.noReaded ? <span>{message.noReaded}</span> : ''}
                         
-                        <span>13</span>
                     </div>
                     }
                     

@@ -5,20 +5,35 @@
     width: 100%;
     padding: 10px;
     cursor: pointer;
-
-    .dialogs__item-avatar {
-        margin-right: 12px;
-        width: 50px;
-        height: 50px;
-        img {
-            width: 50px;
-            height: 50px;
+    &-online{
+        position: relative;
+        .dialogs__item-avatar::before{
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: rgb(26, 236, 26);
+            border: 3px solid #fff;
             border-radius: 50%;
+            bottom: 0;
+            right: 0;
         }
     }
+    .dialogs__item-avatar {
+        margin-right: 12px;
+        width: 60px;
+        height: 60px;
+        position: relative;
+        img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+        }
+        
+    }
     &-anon{
-        width: 50px;
-        height: 50px;
+        width: 60px;
+        height: 60px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -38,12 +53,17 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 4px;
+            margin-bottom: 6px;
+            margin-top: 3px;
         }
         &-name {
             font-weight: 700;
             font-size: 16px;
-            margin-bottom: 5px;
+            text-overflow: ellipsis;
+            overflow: hidden; 
+            width: 200px;
+            white-space: nowrap;
+           
         }
         &-data {
             opacity: 0.7;
@@ -54,9 +74,20 @@
             justify-content: space-between;
             align-items: center;
         }
+        &-text{
+            opacity: 0.7;
+            transition: all 0.4s;
+            text-overflow: ellipsis;
+            overflow: hidden; 
+            width: 220px;  
+            white-space: nowrap;
+            &:hover{
+                opacity: 1;
+            }
+        }
         &-num {
-            width: 25px;
-            height: 25px;
+            width: 20px;
+            height: 20px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -64,6 +95,9 @@
             background-color: rgb(248, 112, 112);
             color: #fff;
             font-weight: 600;
+            span{
+                font-size: 12px;
+            }
             
         }
         &-icon{
