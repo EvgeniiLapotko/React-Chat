@@ -95,26 +95,21 @@ html {
     text-align: center;
 }
 
-.wrapper__chat{
+.wrapper__chat {
     display: flex;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
     max-width: 1000px;
     margin: 0 auto;
-}
-
-.dialogs{
-    border-right: 1px solid rgba(0, 0, 0, 0.4);
-    margin-right: 10px;
-    max-width: 370px;
-    width: 100%;
+    border-radius: 15px;
 }
 
 .chat {
     max-width: 650px;
     width: 100%;
-   
+
     padding: 15px;
-    height: 500px;
+    min-height: 700px;
+    height: 100%;
 
     overflow: auto;
 }
