@@ -1,0 +1,11 @@
+.chat__window {
+    height: calc(100% - 100px);
+    padding: 20px;
+    overflow: auto;
+    &-empty {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+    }
+}

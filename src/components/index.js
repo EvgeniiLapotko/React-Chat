@@ -5,3 +5,6 @@ export { default as Dialogs } from "./Dialogs";
 export { default as IconReaded } from "./IconReaded";
 export { default as Time } from "./Time";
 export { default as DialogsBlock } from "./DialogsBlock";
+export { default as Status } from "./Status";
+export { default as InputChat } from "./InputChat";
+export { default as MessageBlock } from "./MessageBlock";

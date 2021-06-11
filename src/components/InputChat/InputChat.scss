@@ -1,0 +1,40 @@
+.chat__input {
+    align-items: center;
+    position: relative;
+    padding: 5px 10px;
+    & .anticon {
+        font-size: 20px;
+        padding: 0;
+        margin: 0;
+        padding-right: 8px;
+        cursor: pointer;
+        opacity: 0.6;
+        transition: all 0.3s;
+        &:hover {
+            opacity: 1;
+        }
+    }
+    &-smile {
+        position: absolute;
+        z-index: 2;
+        left: 25px;
+        padding-top: 5px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    &-input {
+        padding-left: 50px;
+        padding-right: 100px;
+    }
+    &-action {
+        position: absolute;
+        right: 15px;
+        padding-top: 5px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}
+
+.chat__input-icon--send {
+    color: #2371ff;
+}

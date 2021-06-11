@@ -1,6 +1,11 @@
 .dialogs {
-    border-right: 1px solid rgba(0, 0, 0, 0.2);
     margin-right: 10px;
-    max-width: 370px;
     width: 100%;
+    height: calc(100% - 110px);
+    overflow: auto;
+    &-search {
+        padding-left: 15px;
+        padding-right: 15px;
+        margin-bottom: 20px;
+    }
 }
