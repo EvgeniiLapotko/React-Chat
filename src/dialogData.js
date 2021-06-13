@@ -3,7 +3,7 @@ const data = [
         _id: Math.random(),
         text: "Мы все сведетельствуем Вам наше глубочайшее подчение",
         isReaded: false,
-        created_data: new Date(),
+        created_at: new Date(),
         unReaded: 21,
         user: {
             _id: 1,
@@ -17,7 +17,7 @@ const data = [
         _id: Math.random(),
         text: "Мы все сведетельствуем Вам наше глубочайшее подчение",
         isReaded: false,
-        created_data: new Date("2021-06-09"),
+        created_at: new Date("2021-06-09"),
         user: {
             _id: 2,
             fullname: "Федор Достоевский",
@@ -29,7 +29,7 @@ const data = [
         _id: Math.random(),
         text: "Мы все сведетельствуем Вам наше глубочайшее подчение",
         isReaded: true,
-        created_data: new Date(),
+        created_at: new Date(),
 
         user: {
             _id: 3,
@@ -43,7 +43,7 @@ const data = [
         _id: Math.random(),
         text: "Мы все сведетельствуем Вам наше глубочайшее подчение",
         isReaded: false,
-        created_data: new Date(),
+        created_at: new Date(),
         unReaded: 12,
         user: {
             _id: 4,

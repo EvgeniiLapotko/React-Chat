@@ -1,0 +1,1 @@
+export { default as dialogsReducers} from './dialogs'

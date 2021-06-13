@@ -18,7 +18,7 @@ const DialogsBlock = ({ items, userId, onSearch, inputValue }) => {
             {!items.length ? (
                 <Empty description="Никого не найдено" />
             ) : (
-                orderBy(items, ["created_data"], ["desc"]).map(
+                orderBy(items, ["created_at"], ["desc"]).map(
                     (item, index) => {
                         return (
                             <DialogsItem
