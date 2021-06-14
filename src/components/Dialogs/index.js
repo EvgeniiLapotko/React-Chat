@@ -2,7 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 
-import { format } from "date-fns";
+import { format, parseISO } from "date-fns";
+
 import isToday from "date-fns/isToday";
 import "./Dialogs.scss";
 import { IconReaded } from "../index";
@@ -15,7 +16,7 @@ const getMessageTime = (date) => {
     }
 };
 
-const Dialogs = ({ user, message, isMe }) => {
+const Dialogs = ({ user, message, isMe, onSelect }) => {
     const getAvatar = (avatar, name) => {
         if (avatar) {
             return <img src={avatar} alt="avatar" />;
@@ -27,11 +28,13 @@ const Dialogs = ({ user, message, isMe }) => {
             );
         }
     };
+
     return (
         <div
             className={classNames("dialogs__item", {
                 "dialogs__item-online": user.isOnline,
             })}
+            onClick={(e) => onSelect(message._id)}
         >
             <div className="dialogs__item-avatar">
                 {getAvatar(user.avatar, user.fullname)}
@@ -42,7 +45,11 @@ const Dialogs = ({ user, message, isMe }) => {
                         {user.fullname}
                     </div>
                     <div className="dialogs__item-info-data">
-                        {getMessageTime(message.created_at)}
+                        {getMessageTime(
+                            parseISO(message.created_at, {
+                                additionalDigits: 1,
+                            })
+                        )}
                     </div>
                 </div>
                 <div className="dialogs__item-info-bottom">

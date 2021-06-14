@@ -5,7 +5,13 @@ import PropTypes from "prop-types";
 import "./DialogsBlock.scss";
 import { Input, Empty } from "antd";
 
-const DialogsBlock = ({ items, userId, onSearch, inputValue }) => {
+const DialogsBlock = ({
+    items,
+    userId,
+    onSearch,
+    inputValue,
+    onSelectDialog,
+}) => {
     return (
         <div className="dialogs">
             <div className="dialogs-search">
@@ -18,18 +24,17 @@ const DialogsBlock = ({ items, userId, onSearch, inputValue }) => {
             {!items.length ? (
                 <Empty description="Никого не найдено" />
             ) : (
-                orderBy(items, ["created_at"], ["desc"]).map(
-                    (item, index) => {
-                        return (
-                            <DialogsItem
-                                message={item}
-                                user={item.user}
-                                key={item._id}
-                                isMe={item.user._id === userId}
-                            />
-                        );
-                    }
-                )
+                orderBy(items, ["created_at"], ["desc"]).map((item, index) => {
+                    return (
+                        <DialogsItem
+                            message={item}
+                            user={item.user}
+                            key={item._id}
+                            isMe={item.user._id === userId}
+                            onSelect={onSelectDialog}
+                        />
+                    );
+                })
             )}
         </div>
     );

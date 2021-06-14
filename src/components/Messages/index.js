@@ -5,20 +5,22 @@ import classNames from "classnames";
 import waveSvg from "../../assets/wave.svg";
 import playSvg from "../../assets/play.svg";
 import pauseSvg from "../../assets/pause.svg";
-
+import { format, parseISO } from "date-fns";
+import isToday from "date-fns/isToday";
 import "./Message.scss";
-import { IconReaded, Time } from "../index";
+import { IconReaded } from "../index";
 
 const Message = ({
     avatar,
     audio,
     name,
     text,
-    date,
+    created_at,
     isMe,
     isReading,
     attachment,
     isTyping,
+    user,
 }) => {
     const [isPlaying, setIsPlaying] = useState(false);
     const [progress, setProgress] = useState(0);
@@ -29,6 +31,14 @@ const Message = ({
         const mins = Math.floor(number / 60);
         const secs = (number % 60).toFixed();
         return `${mins < 10 ? "0" : ""}${mins}:${secs < 10 ? "0" : ""}${secs}`;
+    };
+
+    const getMessageTime = (date) => {
+        if (isToday(date)) {
+            return format(date, "HH:mm");
+        } else {
+            return format(date, "dd.MM.yyyy");
+        }
     };
 
     const getPlaying = () => {
@@ -54,6 +64,18 @@ const Message = ({
         setCurrentTime(audioRef.current.currentTime);
         setProgress((audioRef.current.currentTime / duration) * 100);
     };
+
+    const getAvatar = (avatar, name) => {
+        if (avatar) {
+            return <img src={avatar} alt="avatar" />;
+        } else {
+            return (
+                <div className="message__item-anon">
+                    <span>{name ? name[0] : "AN"}</span>
+                </div>
+            );
+        }
+    };
     return (
         <div
             className={classNames("message", {
@@ -65,7 +87,7 @@ const Message = ({
         >
             <IconReaded isMe={isMe} isReading={isReading} />
             <div className="message__avatar">
-                <img src={avatar} alt="avatar" />
+                {getAvatar(avatar, user.fullname)}
             </div>
             {/* <div className="message__username">{name}</div> */}
 
@@ -142,9 +164,13 @@ const Message = ({
                         })}
                 </div>
 
-                {date && (
+                {created_at && (
                     <div className="message__date">
-                        <Time date={date} />
+                        {getMessageTime(
+                            parseISO(created_at, {
+                                additionalDigits: 1,
+                            })
+                        )}
                     </div>
                 )}
             </div>

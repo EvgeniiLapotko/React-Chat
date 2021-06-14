@@ -1,13 +1,11 @@
 import React from "react";
-import { Status, InputChat, MessageBlock } from "../components";
-import { Dialog } from "../container";
+import { Status, InputChat } from "../components";
+import { Dialog, Message } from "../container";
 import {
     TeamOutlined,
     FormOutlined,
     EllipsisOutlined,
 } from "@ant-design/icons";
-
-import dialogData from "../dialogData";
 
 const Home = () => {
     return (
@@ -24,7 +22,7 @@ const Home = () => {
                         <FormOutlined className="chat__sidebar-icon chat__sidebar-icon--edit" />
                     </div>
 
-                    <Dialog items={dialogData} userId={3} />
+                    <Dialog items={[]} userId={3} />
                 </div>
 
                 <div className="chat">
@@ -41,7 +39,7 @@ const Home = () => {
                             <EllipsisOutlined className="chat__header-dots--icon" />
                         </div>
                     </div>
-                    <MessageBlock items={true} />
+                    <Message items={[]} />
                     <div className="chat__window-input">
                         <InputChat />
                     </div>
