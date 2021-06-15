@@ -14,6 +14,7 @@ const DialogsBlock = ({
     onSelectDialog,
 }) => {
     const isLoaded = useSelector(({ dialogs }) => dialogs.isLoaded);
+    const currentDialog = useSelector(({ dialogs }) => dialogs.currentDialog);
     return (
         <div className="dialogs">
             <div className="dialogs-search">
@@ -38,6 +39,7 @@ const DialogsBlock = ({
                             key={item._id}
                             isMe={item.user._id === userId}
                             onSelect={onSelectDialog}
+                            currentDialog={currentDialog}
                         />
                     );
                 })

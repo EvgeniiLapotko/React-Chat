@@ -4,9 +4,17 @@
     width: 100%;
     padding: 10px 15px;
     cursor: pointer;
+    transition: all 0.1s;
     &.active,
     &:hover {
         background-color: #f2f7ff;
+    }
+    &-select {
+        background-color: #33aad9;
+        color: #fff;
+        &:hover {
+            background-color: #33aaff;
+        }
     }
     &-online {
         position: relative;

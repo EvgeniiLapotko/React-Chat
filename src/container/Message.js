@@ -11,7 +11,7 @@ function Message({ items }) {
 
     useEffect(() => {
         dispatch(actionsMessage.fetchMessage(currentDialog));
-    }, [currentDialog]);
+    }, [currentDialog, dispatch]);
 
     useEffect(() => {
         messageRef.current.scrollTo(0, 5555);

@@ -38,3 +38,21 @@
 .chat__input-icon--send {
     color: #2371ff;
 }
+
+.chat__input-smilePicker {
+    display: none;
+    position: absolute;
+    bottom: 35px;
+    left: -15px;
+}
+
+.chat__input-smilePicker.active {
+    display: block;
+}
+
+.chat__input-fileload {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    position: absolute;
+}

@@ -16,7 +16,7 @@ const getMessageTime = (date) => {
     }
 };
 
-const Dialogs = ({ user, message, isMe, onSelect }) => {
+const Dialogs = ({ user, message, isMe, onSelect, currentDialog }) => {
     const getAvatar = (avatar, name) => {
         if (avatar) {
             return <img src={avatar} alt="avatar" />;
@@ -33,6 +33,7 @@ const Dialogs = ({ user, message, isMe, onSelect }) => {
         <div
             className={classNames("dialogs__item", {
                 "dialogs__item-online": user.isOnline,
+                "dialogs__item-select": currentDialog === message._id,
             })}
             onClick={(e) => onSelect(message._id)}
         >
