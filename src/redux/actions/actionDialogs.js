@@ -9,9 +9,15 @@ const actions = {
         type: "DIALOGS:SET_ITEMS",
         payload: items,
     }),
+    getLoaded: (bool) => ({
+        type: "DIALOGS:SET_LOADED",
+        payload: bool,
+    }),
     fetchDialogs: () => (dispatch) => {
+        dispatch(actions.getLoaded(true));
         dialogsApi.getDialogs().then(({ data }) => {
             dispatch(actions.setDialogs(data));
+            dispatch(actions.getLoaded(false));
         });
     },
 };

@@ -1,5 +1,6 @@
 const initialState = {
     items: [],
+    isLoaded: true,
 };
 
 const messageReducers = (state = initialState, action) => {
@@ -8,6 +9,12 @@ const messageReducers = (state = initialState, action) => {
             return {
                 ...state,
                 items: action.payload,
+            };
+
+        case "MESSAGE:SET_LOADED":
+            return {
+                ...state,
+                isLoaded: action.payload,
             };
 
         default:

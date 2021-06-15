@@ -1,6 +1,7 @@
 const initialState = {
     items: [],
     currentDialog: [],
+    isLoaded: true,
 };
 
 const dialogsReducers = (state = initialState, action) => {
@@ -14,6 +15,11 @@ const dialogsReducers = (state = initialState, action) => {
             return {
                 ...state,
                 currentDialog: action.payload,
+            };
+        case "DIALOGS:SET_LOADED":
+            return {
+                ...state,
+                isLoaded: action.payload,
             };
         default:
             return state;

@@ -3,7 +3,8 @@ import orderBy from "lodash/orderBy";
 import DialogsItem from "../Dialogs";
 import PropTypes from "prop-types";
 import "./DialogsBlock.scss";
-import { Input, Empty } from "antd";
+import { Input, Empty, Spin } from "antd";
+import { useSelector } from "react-redux";
 
 const DialogsBlock = ({
     items,
@@ -12,6 +13,7 @@ const DialogsBlock = ({
     inputValue,
     onSelectDialog,
 }) => {
+    const isLoaded = useSelector(({ dialogs }) => dialogs.isLoaded);
     return (
         <div className="dialogs">
             <div className="dialogs-search">
@@ -21,7 +23,11 @@ const DialogsBlock = ({
                     value={inputValue}
                 />
             </div>
-            {!items.length ? (
+            {isLoaded ? (
+                <div className="chat__window-empty">
+                    <Spin size="large" tip="Загрузка диалогов..." />
+                </div>
+            ) : !items.length ? (
                 <Empty description="Никого не найдено" />
             ) : (
                 orderBy(items, ["created_at"], ["desc"]).map((item, index) => {

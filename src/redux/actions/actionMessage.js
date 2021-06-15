@@ -5,17 +5,17 @@ const actions = {
         type: "MESSAGE:SET_ITEMS",
         payload: item,
     }),
+    getLoaded: (bool) => ({
+        type: "MESSAGE:SET_LOADED",
+        payload: bool,
+    }),
     fetchMessage: (dialogId) => (dispatch) => {
+        dispatch(actions.getLoaded(true));
         messageApi.getMessage(dialogId).then(({ data }) => {
             dispatch(actions.setMessage(data));
+            dispatch(actions.getLoaded(false));
         });
     },
-    // fetchMessage: (dialogId) => (dispatch) => {
-    //     dialogsApi.getMessage().then(({ data }) => {
-    //         const currentDialogs = data.filter((item) => item.id === dialogId);
-    //         dispatch(actions.setMessage(currentDialogs));
-    //     });
-    // },
 };
 
 export default actions;
