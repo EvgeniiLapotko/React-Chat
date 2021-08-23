@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/React-Chat/static/css/main.ece453d1.chunk.css",
+    "main.js": "/React-Chat/static/js/main.9182dfdb.chunk.js",
+    "main.js.map": "/React-Chat/static/js/main.9182dfdb.chunk.js.map",
+    "runtime-main.js": "/React-Chat/static/js/runtime-main.6e3585b4.js",
+    "runtime-main.js.map": "/React-Chat/static/js/runtime-main.6e3585b4.js.map",
+    "static/css/2.13c9fe99.chunk.css": "/React-Chat/static/css/2.13c9fe99.chunk.css",
+    "static/js/2.b78f5e8d.chunk.js": "/React-Chat/static/js/2.b78f5e8d.chunk.js",
+    "static/js/2.b78f5e8d.chunk.js.map": "/React-Chat/static/js/2.b78f5e8d.chunk.js.map",
+    "index.html": "/React-Chat/index.html",
+    "static/css/2.13c9fe99.chunk.css.map": "/React-Chat/static/css/2.13c9fe99.chunk.css.map",
+    "static/css/main.ece453d1.chunk.css.map": "/React-Chat/static/css/main.ece453d1.chunk.css.map",
+    "static/js/2.b78f5e8d.chunk.js.LICENSE.txt": "/React-Chat/static/js/2.b78f5e8d.chunk.js.LICENSE.txt",
+    "static/media/pause.af841eb8.svg": "/React-Chat/static/media/pause.af841eb8.svg",
+    "static/media/play.694745f9.svg": "/React-Chat/static/media/play.694745f9.svg",
+    "static/media/wave.3f5757ab.svg": "/React-Chat/static/media/wave.3f5757ab.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.6e3585b4.js",
+    "static/css/2.13c9fe99.chunk.css",
+    "static/js/2.b78f5e8d.chunk.js",
+    "static/css/main.ece453d1.chunk.css",
+    "static/js/main.9182dfdb.chunk.js"
+  ]
+}
