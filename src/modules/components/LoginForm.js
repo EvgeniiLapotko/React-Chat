@@ -86,6 +86,7 @@ function LoginForm(props) {
                 <div className="warning__message">
                     {dirty && !isValid && <span>Ошибка заполнения формы</span>}
                 </div>
+
                 <Form.Item>
                     <Button
                         type="primary"
@@ -93,7 +94,7 @@ function LoginForm(props) {
                         size="large"
                         onClick={handleSubmit}
                     >
-                        Войти в аккаунт
+                        <Link to="/im">Войти в аккаунт</Link>
                     </Button>
                 </Form.Item>
 

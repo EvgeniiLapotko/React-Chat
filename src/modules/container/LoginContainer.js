@@ -3,7 +3,7 @@ import { withFormik } from "formik";
 
 export default withFormik({
     mapPropsToValues: () => ({ login: "", password: "" }),
-    // Custom sync validation
+
     validate: (values) => {
         const errors = {};
 
@@ -22,7 +22,7 @@ export default withFormik({
         setTimeout(() => {
             alert(JSON.stringify(values, null, 2));
             setSubmitting(false);
-        }, 1000);
+        }, 500);
     },
 
     displayName: "LofinForm",
